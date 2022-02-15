@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  example-db-backup:
+    container_name: example-db-backup
+    image: tiredofit/db-backup:latest
+    volumes:
+      - ./backups:/backup
+      - ./post-script.sh:/assets/custom-scripts/post-script.sh
+    environment:
+      - TIMEZONE=Asia/Kuala_Lumpur
+      - DB_TYPE=mariadb
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_NAME=_89e3383a650fbc09
+      - DB_USER=root
+      - DB_PASS=admin # for postgres, add quotation mark (e.g. "postgres_password")
+      - DB_DUMP_FREQ=3600  # backup frequency in seconds
+      - DB_DUMP_BEGIN=+0
+      - MD5=TRUE
+      - COMPRESSION=GZ
+      - SPLIT_DB=FALSE
+
+networks:
+  default:
+    external: true
+    name: <your_docker_compose_project_name>_default
