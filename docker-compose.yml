@@ -12,7 +12,7 @@ services:
       - DB_TYPE=mariadb
       - DB_HOST=mariadb
       - DB_PORT=3306
-      - DB_NAME=_89e3383a650fbc09
+      - DB_NAME=<your_db_name>
       - DB_USER=root
       - DB_PASS=admin # for postgres, add quotation mark (e.g. "postgres_password")
       - DB_DUMP_FREQ=3600  # backup frequency in seconds
